@@ -8,8 +8,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @vite('resources/css/app.sass')
+    @vite('resources/js/app.js')
 </head>
 <body>
+<div id="app">
     <nav>
         <div class="container">
             <div class="row align-items-center g-1">
@@ -34,7 +36,9 @@
         </div>
     </nav>
     <div class="hero-banner" style="background: url('{{ $data->heroBanner }}')">
-        <div class="container">
+        <top-scroll></top-scroll>
+        <div class="overlay"></div>
+        <div class="container position-relative">
             <div class="row">
                 <div class="col-12 col-md-6">
                     left section
@@ -111,7 +115,6 @@
             </div>
         </div>
     </section>
-
     <footer>
         <div class="container">
             <div class="row g-1 align-items-center">
@@ -140,5 +143,6 @@
             </div>
         </div>
     </footer>
+</div>
 </body>
 </html>

@@ -11,7 +11,7 @@ class IndexController extends Controller
         $data = (object) [
             'name' => 'Выкуп в томске',
             'description' => 'Авто и техника',
-            'heroBanner' => '//via.placeholder.com/1920x1080',
+            'heroBanner' => '/assets/images/banner.jpg',
             'logo' => '//via.placeholder.com/256x256',
             'phone' => '+7(999)999-99-99',
             'waLink' => '//wa.me/79998889988'
