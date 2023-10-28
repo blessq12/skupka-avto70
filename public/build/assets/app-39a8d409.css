@@ -1,4 +1,4 @@
-.rating-request{position:relative;width:100%;min-height:250px;border-radius:10px;padding:12px}.rating-request .request-step ul{display:flex;width:100%}.rating-request .request-step ul li{width:50%;padding:6px;cursor:pointer}/*!
+.wa-button{background:green;color:#fff;border:none;display:flex;align-items:center;justify-content:center;padding:12px;border-radius:10px}.wa-button i{margin-right:12px}.rating-request{position:relative;width:100%;min-height:250px;border-radius:10px;padding:12px}.rating-request .request-step ul{display:flex;width:100%}.rating-request .request-step ul li{width:50%;padding:6px;cursor:pointer}/*!
 * animate.css - https://animate.style/
 * Version - 4.1.1
 * Licensed under the MIT license - http://opensource.org/licenses/MIT
