@@ -1,7 +1,6 @@
 <script>
 export default{
     mounted(){
-        console.log(this.$refs)
         this.$refs.container.append(this.$refs.list.cloneNode(true))
     },
     data:()=>({
