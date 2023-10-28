@@ -21,15 +21,12 @@ export default{
             }
         }
     },
-    methods:{},
-    watch:{
-        requestData:{
-            handler(val){
-                console.log(val);
-            },
-            deep: true
+    methods:{
+        sendData(){
+            console.log(this.requestData)
         }
-    }
+    },
+    watch:{}
 }
 </script>
 
@@ -76,7 +73,11 @@ export default{
                         <label for="model">Введите модель</label>
                         <input type="text" class="form-control" v-model="requestData.model" placeholder="Например, 21099">
                     </div>
-                    <button class="btn btn-primary" @click="step++" :disabled="requestData.brand && requestData.model !== '' ? false : true">Дальше</button>
+                    <div class="form-group mb-2">
+                        <label for="year">Введите год производства</label>
+                        <input type="text" name="year" id="year" class="form-control" v-maska data-maska="####" v-model="requestData.year">
+                    </div>
+                    <button class="btn btn-primary" @click="step++" :disabled="requestData.brand && requestData.model && requestData.year ? false : true">Дальше</button>
                 </div>
                 <div v-if="requestData.auto == 'Иномарка'">
                     <div class="form-group mb-2">
@@ -131,7 +132,11 @@ export default{
                         <label for="model">Введите модель</label>
                         <input type="text" name="model" id="model" class="form-control" v-model="requestData.model">
                     </div>
-                    <button class="btn btn-primary" @click="step++" :disabled="(requestData.brand || requestData.brandAdd) && requestData.model ? false : true" >Дальше</button>
+                    <div class="form-group mb-2">
+                        <label for="year">Введите год выпуска</label>
+                        <input type="text" name="year" id="year" class="form-control" v-model="requestData.year" v-maska data-maska="####">
+                    </div>
+                    <button class="btn btn-primary" @click="step++" :disabled="(requestData.brand || requestData.brandAdd) && requestData.model && requestData.year ? false : true" >Дальше</button>
                 </div>
             </div>
             <div class="request-step" v-else-if="step == 3" key="3">
@@ -157,13 +162,13 @@ export default{
                 <div class="form-check mb-2">
                     <input class="form-check-input" type="checkbox" value="Проблемы с документами" id="credit" v-model="requestData.additional.credit">
                     <label class="form-check-label" for="credit">
-                        Кредитный автомобиль
+                        Есть обременения
                     </label>
                 </div>
                 <div class="form-check mb-2">
                     <input class="form-check-input" type="checkbox" value="Проблемы с документами" id="zalog" v-model="requestData.additional.zalog">
                     <label class="form-check-label" for="zalog">
-                        Авто находиится в залоге
+                        Авто находится в залоге
                     </label>
                 </div>
                 <button @click="step++" class="btn btn-primary">Дальше</button>
@@ -171,7 +176,7 @@ export default{
             <div class="request-step" v-else-if="step == 4" key="4">
                <p>Спасибо, что ответили на все вопросы, продолжите беседу с нашим менеджером в мессенджере WhatsApp</p>
                <div class="d-flex justify-content-center">
-                    <button class="wa-button">
+                    <button class="wa-button" @click="sendData">
                         <i class="fab fa-whatsapp fa-2x"></i>
                         Перейти в WhatsApp
                     </button>
