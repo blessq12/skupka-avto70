@@ -13,8 +13,8 @@ class IndexController extends Controller
             'description' => 'Авто и техника',
             'heroBanner' => '/assets/images/banner.jpg',
             'logo' => '//via.placeholder.com/256x256',
-            'phone' => '+7(999)999-99-99',
-            'waLink' => '//wa.me/79998889988'
+            'phone' => '+7 (913) 853-03-90',
+            'waLink' => '//wa.me/79138530390'
         ];
 
         return view('index',[

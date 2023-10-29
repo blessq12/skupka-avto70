@@ -1,5 +1,8 @@
 <script>
 export default{
+    props:{
+        data: Object
+    },
     mounted(){},
     data:()=>({
         step: 1,
@@ -23,7 +26,39 @@ export default{
     },
     methods:{
         sendData(){
-            console.log(this.requestData)
+            
+            let requestString = ''
+            requestString += 'Страна: ' + this.requestData.auto + "%0a"
+            if (this.requestData.brand !== 'null'){
+                requestString += 'Марка: ' + this.requestData.brand + "%0a"
+            }
+            if (this.requestData.brandAdd){
+                requestString += 'Марка: ' + this.requestData.brandAdd + "%0a"
+            }
+            requestString += 'Модель: ' + this.requestData.model + "%0a"
+            requestString += 'Год выпуска: ' + this.requestData.year + "%0a"
+            
+            let additional = this.requestData.additional
+            let additionalString = 'Дополнительно: '
+            for(let item in additional){
+                item.toString()
+                switch (item) {
+                    case 'doc': additionalString += 'Проблемы с документами; '
+                        break;
+                    case 'repair': additionalString += 'Требуется ремонта авто; '
+                        break;
+                    case 'dead': additionalString += 'Битый или не на ходу; '
+                        break;
+                    case 'credit': additionalString += 'Есть обременения; '
+                        break;
+                    case 'zalog': additionalString += 'Авто находится в залоге; '
+                    default:
+                        break;
+                }
+            }
+            requestString += additionalString + '%0a'
+            requestString += 'Приложите фотографии автомобиля к этому сообщению, чтобы мы могли быстрее произвести оценку %0a'
+            window.open(this.data.waLink + '?text=' + requestString,'_blank')
         }
     },
     watch:{}
@@ -40,7 +75,7 @@ export default{
         >
             <div class="request-step" v-if="step == 1" key="1">
                 <ul class="list-unstyled">
-                    <li @click="()=>{requestData.auto = 'Отечественный авто', step++}">
+                    <li @click="()=>{requestData.auto = 'Россия', step++}">
                         <div class="border text-center rounded py-2">
                             <img src="/assets/images/ot-brand.jpg" class="img-fluid rounded" alt="">
                             <p class="mb-0 mt-1">Отечественный</p>
@@ -55,7 +90,7 @@ export default{
                 </ul>
             </div>
             <div class="request-step" v-else-if="step == 2" key="2">
-                <div v-if="requestData.auto == 'Отечественный авто'">
+                <div v-if="requestData.auto == 'Россия'">
                     <div class="form-group mb-2">
                         <label for="marka">Выберите марку авто</label>
                         <select name="marka" id="marka" class="form-select" v-model="requestData.brand">
@@ -73,7 +108,7 @@ export default{
                         <label for="model">Введите модель</label>
                         <input type="text" class="form-control" v-model="requestData.model" placeholder="Например, 21099">
                     </div>
-                    <div class="form-group mb-2">
+                    <div class="form-group mb-4">
                         <label for="year">Введите год производства</label>
                         <input type="text" name="year" id="year" class="form-control" v-maska data-maska="####" v-model="requestData.year">
                     </div>
@@ -132,7 +167,7 @@ export default{
                         <label for="model">Введите модель</label>
                         <input type="text" name="model" id="model" class="form-control" v-model="requestData.model">
                     </div>
-                    <div class="form-group mb-2">
+                    <div class="form-group mb-4">
                         <label for="year">Введите год выпуска</label>
                         <input type="text" name="year" id="year" class="form-control" v-model="requestData.year" v-maska data-maska="####">
                     </div>
@@ -165,7 +200,7 @@ export default{
                         Есть обременения
                     </label>
                 </div>
-                <div class="form-check mb-2">
+                <div class="form-check mb-4">
                     <input class="form-check-input" type="checkbox" value="Проблемы с документами" id="zalog" v-model="requestData.additional.zalog">
                     <label class="form-check-label" for="zalog">
                         Авто находится в залоге
@@ -203,7 +238,6 @@ export default{
     width: 100%
     min-height: 250px
     border-radius: $default-radius
-    padding: 12px
     .request-step
         ul
             display: flex

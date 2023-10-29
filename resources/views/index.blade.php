@@ -113,7 +113,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
-                    <rating-request></rating-request>
+                    <rating-request :data='@json($data)'></rating-request>
                 </div>
             </div>
         </div>
@@ -122,7 +122,9 @@
         <div class="cta-recall">
             <div class="container">
                 <div class="row">
-                    <div class="col-12"></div>
+                    <div class="col-12">
+                        фывфыв
+                    </div>
                 </div>
             </div>
         </div>
