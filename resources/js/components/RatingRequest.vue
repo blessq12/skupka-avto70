@@ -26,17 +26,17 @@ export default{
     },
     methods:{
         sendData(){
-            
+
             let requestString = ''
-            requestString += 'Страна: ' + this.requestData.auto + "%0a"
+            requestString += 'Страна: ' + this.requestData.auto + "%0a%0a"
             if (this.requestData.brand !== 'null'){
-                requestString += 'Марка: ' + this.requestData.brand + "%0a"
+                requestString += 'Марка: ' + this.requestData.brand + "%0a%0a"
             }
             if (this.requestData.brandAdd){
-                requestString += 'Марка: ' + this.requestData.brandAdd + "%0a"
+                requestString += 'Марка: ' + this.requestData.brandAdd + "%0a%0a"
             }
-            requestString += 'Модель: ' + this.requestData.model + "%0a"
-            requestString += 'Год выпуска: ' + this.requestData.year + "%0a"
+            requestString += 'Модель: ' + this.requestData.model + "%0a%0a"
+            requestString += 'Год выпуска: ' + this.requestData.year + "%0a%0a"
             
             let additional = this.requestData.additional
             let additionalString = 'Дополнительно: '
@@ -56,8 +56,8 @@ export default{
                         break;
                 }
             }
-            requestString += additionalString + '%0a'
-            requestString += 'Приложите фотографии автомобиля к этому сообщению, чтобы мы могли быстрее произвести оценку %0a'
+            requestString += additionalString + '%0a%0a'
+            requestString += 'Приложите фотографии автомобиля к этому сообщению, чтобы мы могли быстрее произвести оценку %0a%0a'
             window.open(this.data.waLink + '?text=' + requestString,'_blank')
         }
     },
