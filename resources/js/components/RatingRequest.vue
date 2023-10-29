@@ -126,6 +126,7 @@ export default{
                         <label for="marka">Выберите марку авто</label>
                         <select name="marka" id="marka" class="form-select" v-model="requestData.brand">
                             <option selected>Выберите из списка</option>
+                            <option value="Toyota">Toyota</option>
                             <option value="Audi">Audi</option>
                             <option value="BMW">BMW</option>
                             <option value="Mercedes-Benz">Mercedes-Benz</option>
@@ -219,7 +220,7 @@ export default{
                <p>Спасибо, что ответили на все вопросы, продолжите беседу с нашим менеджером в мессенджере WhatsApp</p>
                <div class="d-flex justify-content-center">
                     <button class="wa-button" @click="sendData">
-                        <i class="fab fa-whatsapp fa-2x"></i>
+                        <i class="fa fa-whatsapp fa-2x"></i>
                         Перейти в WhatsApp
                     </button>
                </div>
