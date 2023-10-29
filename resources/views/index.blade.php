@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $data->name }} : {{ $data->phone }}</title>
+    <meta name="description" content="Срочный выкуп автомобилей в Томске и области, принимаем битые и неисправные авто! Звоните +7 (913) 853-03-90">
     {{-- favicon --}}
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/assets/images/favicon/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('/assets/images/favicon/favicon-32x32.png')}}">
@@ -15,6 +16,27 @@
     <meta name="msapplication-config" content="{{asset('/assets/images/favicon/browserconfig.xml')}}">
     <meta name="theme-color" content="#ffffff">
     {{-- end favicon --}}
+
+    {{-- meta --}}
+        <!-- Google / Search Engine Tags -->
+        <meta itemprop="name" content="Выкуп авто в Томске : +7 (913) 853-03-90">
+        <meta itemprop="description" content="Срочный выкуп автомобилей в Томске и области, принимаем битые и неисправные авто! Звоните +7 (913) 853-03-90">
+        <meta itemprop="image" content="http://skupka-avto70.ru/assets/images/banner.jpg">
+
+        <!-- Facebook Meta Tags -->
+        <meta property="og:url" content="http://skupka-avto70.ru">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Выкуп авто в Томске : +7 (913) 853-03-90">
+        <meta property="og:description" content="Срочный выкуп автомобилей в Томске и области, принимаем битые и неисправные авто! Звоните +7 (913) 853-03-90">
+        <meta property="og:image" content="http://skupka-avto70.ru/assets/images/banner.jpg">
+
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Выкуп авто в Томске : +7 (913) 853-03-90">
+        <meta name="twitter:description" content="Срочный выкуп автомобилей в Томске и области, принимаем битые и неисправные авто! Звоните +7 (913) 853-03-90">
+        <meta name="twitter:image" content="http://skupka-avto70.ru/assets/images/banner.jpg">
+    {{-- end meta --}}
+
     @vite('resources/css/app.sass')
     @vite('resources/js/app.js')
 </head>
