@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>{{ $data->name }} : {{ $data->phone }}</title>
+    {{-- favicon --}}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/assets/images/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('/assets/images/favicon/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('/assets/images/favicon/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{ asset('/assets/images/favicon/site.webmanifest')}}">
+    <link rel="shortcut icon" href="{{asset('/assets/images/favicon/favicon.ico')}}">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="{{asset('/assets/images/favicon/browserconfig.xml')}}">
+    <meta name="theme-color" content="#ffffff">
+    {{-- end favicon --}}
     @vite('resources/css/app.sass')
     @vite('resources/js/app.js')
 </head>
@@ -26,10 +34,13 @@
                 </div>
                 <div class="col-6 col-md-6">
                     <div class="cta-navbar">
-                        <button>
-                            <i class="fab fa-whatsapp fa-2x"></i>
+                        <a 
+                            href="{{ $data->waLink }}"
+                            target="_blank"
+                        >
+                            <i class="fa fa-whatsapp fa-2x"></i>
                             {{ __('Написать в Whatapp')}}
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -41,10 +52,19 @@
         <div class="container position-relative">
             <div class="row">
                 <div class="col-12 col-md-6">
-                    left section
+                    <div class="bg-white px-2 py-1 mb-2" style="width:fit-content">
+                        <h5 class="blink mb-0">принимаем битые и неисправные авто!</h5>
+                    </div>
+
+                    <h1 class="mb-2">Срочный выкуп автомобилей в Томске</h1>
+                    <span class="mb-4 d-block">Оставьте заявку сейчас, чтобы узнать ориентировочную стоимость - это бесплатно!</span>
+                    <div class="d-flex">
+                        <a href="tel:{{ $data->phone }}" class="btn btn-primary"> <i class="fa fa-phone"></i> Позвонить</a>
+                        <a href="{{ $data->waLink }}" class="btn btn-success mx-2"> <i class="fa fa-whatsapp"></i> Whatapp</a>
+                    </div>
                 </div>
                 <div class="col-12 col-md-6">
-                    right section
+                    
                 </div>
             </div>
         </div>
@@ -118,12 +138,18 @@
             </div>
         </div>
     </section>
-    <section>
-        <div class="cta-recall">
+    <section class="pb-0">
+        <div class="cta-recall bg-danger text-white py-4">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        фывфыв
+                        <div class="p-3 border rounded">
+                            <h4>Позвоните и получите бесплатную консультацию и оценку!</h4>
+                            <p>Наши менеджеры ответят на любые ваши вопросы по выкупу автомобиля, а также скажут ориентировочную стоимость</p>
+                            <div class="text-center">
+                                <a href="tel{{ $data->phone }}" class="btn btn-outline-light">{{ $data->phone }}</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

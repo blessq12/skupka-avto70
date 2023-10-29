@@ -59,6 +59,13 @@ export default{
             requestString += additionalString + '%0a%0a'
             requestString += 'Приложите фотографии автомобиля к этому сообщению, чтобы мы могли быстрее произвести оценку %0a%0a'
             window.open(this.data.waLink + '?text=' + requestString,'_blank')
+            
+            this.step = 1
+            this.requestData = {
+                model: '',
+                additional:{}
+            }
+
         }
     },
     watch:{}
